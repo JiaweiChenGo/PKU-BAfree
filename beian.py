@@ -9,20 +9,18 @@ parser.add_argument("--usename", "-u", help="学号")
 parser.add_argument("--password", '-p', help="密码")
 parser.add_argument("--liyou", '-l', help="出校理由", default='吃饭')
 parser.add_argument("--xingcheng", '-x', help="出校行程", default='北大东门-五道口-北大东门')
+parser.add_argument("--n", '-n', help="自动备案n天", default=365)
 arge = parser.parse_args()
 user_name = arge.usename
 password = arge.password
 liyou = arge.liyou
 xingcheng = arge.xingcheng
+N = arge.n
 print(user_name)
 print(liyou)
 print(xingcheng)
 n = 1
-#user_name = '1801111502'
-#password = 'chen677296'
-#liyou = '吃饭'
-#xingcheng = '北大东门-五道口-北大东门'
-while (n > 0):
+while (n < N):
     url = 'https://iaaa.pku.edu.cn/iaaa/oauth.jsp?appID=portal2017&appName=%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%86%85%E4%BF%A1%E6%81%AF%E9%97%A8%E6%88%B7%E6%96%B0%E7%89%88&redirectUrl=https://portal.pku.edu.cn/portal2017/ssoLogin.do'
     option = webdriver.ChromeOptions()
     option.add_argument("headless")
